@@ -1,32 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
+import Loading from '../components/Loading';
 import MenuCard from '../components/MenuCard';
 
-// api
-import { getAllMenu } from '../service/menu';
+// context
+import { DataContext } from '../context/Context';
 
 function Menu() {
 
-    const [menu, setMenu] = useState()
+    //context
+    const { menu } = useContext(DataContext)
 
-    useEffect(() => {
-
-        const getData = async () => {
-            const res = await getAllMenu()
-            setMenu(res)
-            console.log(res)
-        }
-        getData()
-
-    }, []);
-
-    if (!menu) return <div>Loading...</div>
+    if (!menu) return <Loading />
 
     return (
         <div className='bg-lightBrown pb-16'>
             <div className='grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto'>
                 {
-                    menu.map((item)=>{
-                        return <MenuCard data={item}/>
+                    menu.map((item) => {
+                        return <MenuCard data={item} />
                     })
                 }
             </div>

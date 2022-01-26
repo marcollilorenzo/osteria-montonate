@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 
 //icon
 import { ArrowRightIcon, LocationMarkerIcon, CalendarIcon, PhoneIcon } from '@heroicons/react/solid'
@@ -15,40 +15,23 @@ import { getInfo } from '../service/info';
 // router 
 import { Link, useNavigate } from 'react-router-dom';
 import { getSpeciality } from '../service/menu';
-
-//animation
+import { DataContext } from '../context/Context';
+import Loading from '../components/Loading';
 
 
 function Home() {
-
-  //state
-  const [orari, setOrari] = useState()
-  const [speciality, setSpeciality] = useState()
 
   // ref
   const hero = useRef()
   const infoSection = useRef()
 
+  //context
+  const {orari,speciality} = useContext(DataContext)
 
   //rotuer
   const navigate = useNavigate()
 
-  useEffect(() => {
-
-    const getData = async () => {
-      const res = await getInfo()
-      const spe = await getSpeciality()
-      setOrari(res[0].hours)
-      setSpeciality(spe)
-      console.log(spe)
-    }
-    getData()
-
-
-  }, []);
-
-
-  if (!orari && !speciality) return <div>Loading...</div>
+  if (!orari && !speciality) return <Loading />
 
   return (
     <div className='bg-lightBrown'>
