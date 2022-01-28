@@ -1,20 +1,16 @@
-import React, { useEffect, useState, useRef, useContext } from 'react';
+import React, { useRef, useContext } from 'react';
 
 //icon
 import { ArrowRightIcon, LocationMarkerIcon, CalendarIcon, PhoneIcon } from '@heroicons/react/solid'
 
 //image
-import logo from "../img/logo.png"
+import logo from "../img/logo-min.png"
 
 // gallery
 import ModalImage from "react-modal-image";
 
-// api
-import { getInfo } from '../service/info';
-
 // router 
 import { Link, useNavigate } from 'react-router-dom';
-import { getSpeciality } from '../service/menu';
 import { DataContext } from '../context/Context';
 import Loading from '../components/Loading';
 
@@ -60,7 +56,7 @@ function Home() {
         </div>
 
         <div className='hidden md:block'>
-          <img className="p-20" src={logo} />
+          <img className="p-20" alt='logo' src={logo} />
         </div>
       </section>
 
@@ -78,7 +74,7 @@ function Home() {
               <div className='flex justify-center flex-col items-center space-y-2'>
                 {
                   orari.map((item) => {
-                    return <p className='text-xl text-darkBrown'>{item}</p>
+                    return <p className='text-xl text-darkBrown text-center'>{item}</p>
                   })
                 }
 

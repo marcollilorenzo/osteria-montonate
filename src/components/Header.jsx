@@ -4,13 +4,13 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 
 //logo
-import logo from "../img/logo.png"
+import logo from "../img/logo-min.png"
 
 function Header() {
 
     return <header className='flex flex-row justify-between items-center py-4 mx-auto max-w-6xl px-4'>
         <NavLink to="/">
-            <img src={logo} className='h-20' />
+            <img src={logo} alt='logo' className='h-20' />
         </NavLink>
 
         <nav className='flex space-x-4'>

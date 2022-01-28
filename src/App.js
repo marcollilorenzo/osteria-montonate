@@ -10,6 +10,7 @@ import DataContextProvider, { DataContext } from "./context/Context";
 //pages
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/contatti" element={<Contact />} />
+
 
       </Routes>
       </DataContextProvider>

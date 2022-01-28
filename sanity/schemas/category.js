@@ -9,6 +9,11 @@ export default {
         title: 'Nome'
       },
       {
+        name: 'position',
+        type: 'number',
+        title: 'Posizione di visualizzazione'
+      },
+      {
         name: 'categoryImage',
         type: 'image',
         title: 'Immagine categoria'
